@@ -1,0 +1,32 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: config-service
+  profiles:
+    active: native
+
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: file:\\\C:\05Studyspace\springcloud-config\native-file-repo
+        git:
+#          uri: file:\\\C:\05Studyspace\springcloud-config
+          uri: https://github.com/khj1/java-springcloud-config-study
+          default-label: main
+#          username: [username]
+#          password: [password]
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, busrefresh
